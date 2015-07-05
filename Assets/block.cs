@@ -6,7 +6,8 @@ public class Block : MonoBehaviour {
 	public int health = 100;
 	List<Edge> edges = new List<Edge>();
 	public Edge[]Edges{ get { return edges.ToArray(); } }
-    public float Mass = 1; 
+    public float Mass = 1;
+    protected Rigidbody2D body;
 
 	public bool AddEdge(Edge e)
 	{
@@ -30,4 +31,17 @@ public class Block : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public virtual void Awake()
+    {
+        body = GetComponentInParent<Rigidbody2D>();
+    }
+
+    public virtual void FixedUpdate()
+    {
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

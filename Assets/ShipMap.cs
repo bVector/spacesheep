@@ -55,7 +55,7 @@ public class ShipMap : MonoBehaviour
         return false;
     }
 
-    public void Rebuild(CPU _CPU)
+    public void Rebuild(Cpu _CPU)
     {
         blocks.Clear();
         AddBlock(0, 0, _CPU);
